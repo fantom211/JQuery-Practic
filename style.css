@@ -5,25 +5,32 @@ body{
 }
 .game-section{
     display: grid;
-    border:2px solid black;
-    border-radius: 5px;
+    padding: 20px;
     grid-template-columns: repeat(5,1fr);
-    gap: 10px;
+    gap: 30px;
+
+    justify-content: center;
 }
-.game-section *{
-    border: 1px dashed;
-    border-radius: 10px;
-    background-color: purple;
-    text-align: center;
-}
+
 .card{
     border:1px solid black;
     border-radius: 5px;
     background-color: white;
-    width: 100px;
-    height: 100px;
-
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+}
+
+.card-back{
+    background-color: gray;
+    color: transparent !important;
+}
+
+.card-face {
+    background-color: white !important;
+    color: white !important;
 }
