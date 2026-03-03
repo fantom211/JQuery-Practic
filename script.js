@@ -49,11 +49,12 @@ cards.forEach((card)=>{
                         currentOpenCards.removeClass('card-face');
                         counter=0;
                         
-                    },1000);
+                    },2000);
                 }
             }
         }
     })
 })
+
 
 
