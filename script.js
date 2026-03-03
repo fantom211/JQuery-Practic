@@ -1,0 +1,3 @@
+$('#block').css({
+    'background-color':'red', width:'200px', height:'200px'
+})

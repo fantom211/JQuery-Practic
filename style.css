@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+}
+.game-section{
+    display: grid;
+    border:2px solid black;
+    border-radius: 5px;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+}
+.game-section *{
+    border: 1px dashed;
+    border-radius: 10px;
+    background-color: purple;
+    text-align: center;
+}
+.card{
+    border:1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
