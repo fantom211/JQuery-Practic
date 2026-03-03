@@ -24,7 +24,7 @@ $('#play-button').on('click', function(){
 
 
 let counter=0;
-
+let matches = 0;
 
 cards.forEach((card)=>{
     $(card).on('click', function(){
@@ -40,7 +40,7 @@ cards.forEach((card)=>{
                 {
                     $(currentOpenCards[0]).addClass('matched');
                     $(currentOpenCards[1]).addClass('matched');                    
-                    console.log("Пара найдена");
+                    matches++;
                     counter=0;
                 }
                 else{
@@ -55,6 +55,10 @@ cards.forEach((card)=>{
         }
     })
 })
+if(matches==5)
+{
+    alert("ПОБЕДА");
+}
 
 
 
