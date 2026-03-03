@@ -26,9 +26,11 @@ $('#play-button').on('click', function(){
 let counter=0;
 let matches = 0;
 
+let isChecked=false;
+
 cards.forEach((card)=>{
     $(card).on('click', function(){
-        if($(this).hasClass('card-face') || $(this).hasClass('matched')) return;
+        if($(this).hasClass('card-face') || $(this).hasClass('matched') || isChecked) return;
 
         counter++;
         $(this).addClass('card-face');
@@ -36,29 +38,32 @@ cards.forEach((card)=>{
         if(counter==2){
             currentOpenCards=$('.card-face:not(.matched)');
             if(currentOpenCards.length==2){
+                isChecked=true;
                 if($(currentOpenCards[0]).text()==$(currentOpenCards[1]).text())
                 {
                     $(currentOpenCards[0]).addClass('matched');
                     $(currentOpenCards[1]).addClass('matched');                    
                     matches++;
                     counter=0;
+                    isChecked=false;
+
+                    if(matches==5)
+                    {
+                        alert("ПОБЕДА");
+                    }
                 }
                 else{
                     console.log("Не пара");
                     setTimeout(()=>{
                         currentOpenCards.removeClass('card-face');
                         counter=0;
-                        
+                        isChecked=false;
                     },2000);
                 }
             }
         }
+       
     })
 })
-if(matches==5)
-{
-    alert("ПОБЕДА");
-}
-
 
 
