@@ -11,10 +11,42 @@ for(i=0; i<5;i++)
 cards.sort(()=>Math.random()-0.5);
 $('.game-section').empty().append(cards);
 
+let timerId = parseInt($('#timer').text());
+let timer = 30;
+
+let skin = 0;
+$('#skinButton').on('click', function()
+{
+    if(skin==0)
+    {
+        skin = 1;
+        $('.card-back').css('background', 'red');
+    }
+    else
+    {
+        skin = 0;
+        $('.card-back').css('background', 'gray');
+    }
+});
+
 $('#play-button').on('click', function(){
     if ($(this).text() == 'START') {
         $('.card').removeClass('card-face matched').addClass('card-back');
         $(this).text('FINISH');
+        timerId = setInterval(()=>{
+            if(timer>0)
+            {
+                timer--;
+                $('#timer').text(timer);
+                console.log(timer);
+            }
+            else
+            {
+                clearInterval(timerId);
+                alert("Время вышло!");
+                $('.card').off('click').removeClass('matched');
+            }
+        },1000);
     } else {
         $('.card').removeClass('card-back matched').addClass('card-face');
         $('.card').off('click').css('pointer-events', 'none');
@@ -65,5 +97,7 @@ cards.forEach((card)=>{
        
     })
 })
+
+
 
 
