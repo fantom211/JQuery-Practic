@@ -14,6 +14,21 @@ $('.game-section').empty().append(cards);
 let timerId = parseInt($('#timer').text());
 let timer = 30;
 
+let skin = 0;
+$('#skinButton').on('click', function()
+{
+    if(skin==0)
+    {
+        skin = 1;
+        $('.card-back').css('background', 'red');
+    }
+    else
+    {
+        skin = 0;
+        $('.card-back').css('background', 'gray');
+    }
+});
+
 $('#play-button').on('click', function(){
     if ($(this).text() == 'START') {
         $('.card').removeClass('card-face matched').addClass('card-back');
@@ -82,6 +97,7 @@ cards.forEach((card)=>{
        
     })
 })
+
 
 
 
